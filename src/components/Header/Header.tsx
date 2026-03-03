@@ -14,6 +14,7 @@ const Header = () => {
             Secure Auth
           </h1>
         </Link>
+
         <nav className="flex items-center gap-4">
           <Link href={"/"}>Home</Link>
           <ThemeToggleButton />
