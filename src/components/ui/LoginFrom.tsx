@@ -2,21 +2,26 @@
 
 import { mainLoginFormSchema, MainLoginFormType } from "@/lib/zodSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { SendIcon } from "lucide-react";
+import { LoaderIcon, SendIcon } from "lucide-react";
 import { Controller, useForm } from "react-hook-form";
 import { Button } from "../shadcnui/button";
 import { Field, FieldError, FieldLabel } from "../shadcnui/field";
 import { Input } from "../shadcnui/input";
 
 const LoginFrom = () => {
-  const { handleSubmit, control } = useForm({
+  const {
+    handleSubmit,
+    control,
+    formState: { isSubmitting },
+  } = useForm({
     resolver: zodResolver(mainLoginFormSchema),
     defaultValues: {
       fullName: "",
       email: "",
     },
   });
-  const formHandlar = (fDate: MainLoginFormType) => {
+  const formHandlar = async (fDate: MainLoginFormType) => {
+    await new Promise<void>((r) => setTimeout(r, 1000));
     console.log(fDate);
   };
   return (
@@ -61,8 +66,19 @@ const LoginFrom = () => {
             </Field>
           )}
         />
-        <Button type="submit">
-          <SendIcon /> Click me
+        <Button
+          disabled={isSubmitting}
+          type="submit">
+          {isSubmitting ?
+            <>
+              {" "}
+              <LoaderIcon className="animate-spin" /> Submiting
+            </>
+          : <>
+              {" "}
+              <SendIcon /> Click me
+            </>
+          }
         </Button>
       </form>
     </section>
