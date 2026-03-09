@@ -16,14 +16,7 @@ const BasicFrom = () => {
     console.log(fData);
   };
 
-  return (
-    <section>
-      <form
-        onSubmit={handleSubmit(formHandlar)}
-        className=""
-        noValidate></form>
-    </section>
-  );
+  return <section></section>;
 };
 
 export default BasicFrom;
