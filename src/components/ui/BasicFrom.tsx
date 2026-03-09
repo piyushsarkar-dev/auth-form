@@ -1,18 +1,29 @@
 "use client";
 
-import { mainLoginFromSchema } from "@/lib/zodSchema";
+import { MainloginFromSceamType, mainLoginFromSchema } from "@/lib/zodSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 
 const BasicFrom = () => {
-  const {} = useForm({
+  const { handleSubmit } = useForm({
     resolver: zodResolver(mainLoginFromSchema),
     defaultValues: {
       fullName: "",
       email: "",
     },
   });
-  return <section></section>;
+
+  const formHandeler = (fData: MainloginFromSceamType) => {
+    console.log(fData);
+  };
+  return (
+    <section>
+      <form
+        onSubmit={handleSubmit(formHandeler)}
+        className=""
+        noValidate></form>
+    </section>
+  );
 };
 
 export default BasicFrom;
