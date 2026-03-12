@@ -4,6 +4,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/shadcnui/card";
+import RegisterForm from "@/components/ui/RegisterForm";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -18,9 +19,11 @@ const page = () => {
       {" "}
       <Card className="w-full max-w-sm">
         <CardHeader>
-          <CardTitle>Login</CardTitle>
+          <CardTitle>Register</CardTitle>
         </CardHeader>
-        <CardContent>Register Page</CardContent>
+        <CardContent>
+          <RegisterForm />
+        </CardContent>
       </Card>
     </section>
   );
