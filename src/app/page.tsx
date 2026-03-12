@@ -4,6 +4,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/shadcnui/card";
+import LoginForm from "@/components/ui/LoginForm";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -19,7 +20,9 @@ const page = () => {
         <CardHeader>
           <CardTitle>Login</CardTitle>
         </CardHeader>
-        <CardContent>Login Page</CardContent>
+        <CardContent>
+          <LoginForm />
+        </CardContent>
       </Card>
     </section>
   );
