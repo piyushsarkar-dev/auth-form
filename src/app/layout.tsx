@@ -20,7 +20,6 @@ const RootLayout = ({ children }: Readonly<RootLayoutProps>) => {
           defaultTheme="dark"
           enableSystem={false}>
           <Header />
-
           <main className="mx-auto max-w-7xl px-6">{children}</main>
         </ThemeProvider>
       </body>
