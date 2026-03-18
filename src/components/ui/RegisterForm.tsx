@@ -6,7 +6,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useSetAtom } from "jotai";
 import { useRouter } from "next/navigation";
 import { Controller, useForm } from "react-hook-form";
-import { toast } from "react-toastify";
 import { Button } from "../shadcnui/button";
 import { Field, FieldError, FieldLabel } from "../shadcnui/field";
 import { Input } from "../shadcnui/input";
@@ -24,11 +23,8 @@ const RegisterForm = () => {
     mode: "all",
   });
 
-  const notify = () => toast.success("Registration successful!");
-
   const registerHandler = (register: registerFormSchemaType) => {
     setRegister(register);
-    notify();
     reset();
     push("/");
   };

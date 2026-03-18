@@ -4,6 +4,8 @@ import { registerAtom } from "@/lib/atom";
 import { loginFormSchemaType, loginSchema } from "@/lib/zodSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useAtomValue } from "jotai";
+import { Route } from "next";
+import { useRouter } from "next/navigation";
 import { Controller, useForm } from "react-hook-form";
 import { Button } from "../shadcnui/button";
 import { Field, FieldError, FieldLabel } from "../shadcnui/field";
@@ -11,6 +13,7 @@ import { Input } from "../shadcnui/input";
 
 const LoginForm = () => {
   const register = useAtomValue(registerAtom);
+  const { push } = useRouter();
   const { handleSubmit, control } = useForm({
     resolver: zodResolver(loginSchema),
     defaultValues: {
@@ -27,7 +30,8 @@ const LoginForm = () => {
       register.email === login.email &&
       register.password === login.password
     ) {
-      console.log(`Login Done `);
+      console.log(`Login Done`);
+      push("/dashboard" as Route);
     } else {
       if (
         register.email !== login.email &&
