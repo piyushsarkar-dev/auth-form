@@ -7,6 +7,7 @@ import { useAtomValue } from "jotai";
 import { Route } from "next";
 import { useRouter } from "next/navigation";
 import { Controller, useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 import { Button } from "../shadcnui/button";
 import { Field, FieldError, FieldLabel } from "../shadcnui/field";
 import { Input } from "../shadcnui/input";
@@ -30,20 +31,20 @@ const LoginForm = () => {
       register.email === login.email &&
       register.password === login.password
     ) {
-      console.log(`Login Done`);
+      toast.success(`Login Done ✅`);
       push("/dashboard" as Route);
     } else {
       if (
         register.email !== login.email &&
         register.password !== login.password
       ) {
-        console.log(`Invalid Email Adress And Pasword`);
+        toast.error(`Invalid Email Adress And Pasword`);
       } else {
         if (register.email !== login.email) {
-          console.log(`Email Adress Not exist`);
+          console.error(`Email Adress Not exist`);
         }
         if (register.password !== login.password) {
-          console.log(`Password Didnt Match`);
+          toast.error(`Password Didnt Match`);
         }
       }
     }
