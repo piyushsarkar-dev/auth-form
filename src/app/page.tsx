@@ -1,4 +1,10 @@
 import Login from "@/components/customui/Login";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "@/components/shadcnui/card";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -9,7 +15,14 @@ export const metadata: Metadata = {
 const page = () => {
   return (
     <section className="grid h-[90dvh] place-items-center">
-      <Login />
+      <Card className="w-sm">
+        <CardHeader>
+          <CardTitle className="text-center">Welcome Back</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <Login />
+        </CardContent>
+      </Card>
     </section>
   );
 };

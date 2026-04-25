@@ -1,4 +1,10 @@
 import Register from "@/components/customui/Register";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "@/components/shadcnui/card";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -8,8 +14,15 @@ export const metadata: Metadata = {
 
 const page = () => {
   return (
-    <section>
-      <Register />
+    <section className="grid h-[90dvh] place-items-center">
+      <Card className="w-sm">
+        <CardHeader>
+          <CardTitle className="text-center">Create An Acount</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <Register />
+        </CardContent>
+      </Card>
     </section>
   );
 };

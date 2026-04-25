@@ -1,5 +1,11 @@
+"use client";
+
 const Login = () => {
-  return <section>Enter</section>;
+  return (
+    <section>
+      <form></form>
+    </section>
+  );
 };
 
 export default Login;
